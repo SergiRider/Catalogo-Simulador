@@ -8,21 +8,35 @@ body{
 }
 h1{
     padding-top: 2rem;
+    padding-bottom: 2rem;
 text-align: center;
 font-size: 50px ;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.contenedor{
-    color: black;
-   text-align: center;
-   margin: 15px;
+
+label{
+    margin-left: 30px;
+    padding-bottom: 1rem;
 }
-.btn{
-    margin: 15px;
-   
+
+.container{
+    display: -webkit-box;
+    width: 20%;
+    margin-bottom: 50px;
+    
 }
-.card{
+
+.contenedorDinamico {
+    margin-top: 100px;
+    padding-top: 100px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
     padding: 15px;
-    color: black;
+    color: rgb(0, 0, 0);
     text-align: center;
+    border-radius: 3px;
+}
+.contenedorDinamico h5{
+    font-weight: bold;
 }

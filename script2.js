@@ -1,42 +1,4 @@
-
-/*const table= document.getElementsByClassName("table")[0]
-
-function createCard(number1,number2,number3){
-    const card= document.createElement("div")
-    card.className="card"
-
-    const marca= document.createElement("div")
-    marca.innerText =number1
-
-    const modelo=document.createElement("div")
-    modelo.className="right"
-    modelo.innerText =number2
-
-    const valor=document.createElement("div")
-    valor.className="right"
-    valor.innerText =number3
-
-    card.append(marca)
-    card.append(modelo)
-    card.append(valor)
-
-    return card
-}
-*/
-/*
-table.appendChild(createCard(kawasaki1.marca,kawasaki1.modelo,kawasaki1.valor))
-
-const titulo=document.getElementById("tituloTarjeta")
-titulo.innerText=kawasaki1.marca
-const descripcion=document.getElementById("parrafoTarjeta")
-descripcion.innerText=kawasaki1.modelo
-const valor=document.getElementById("valorTarjeta")
-valor.innerText=kawasaki1.valor
-*/
-
-
-
-
+//ELEMENTOS DEL SELECTOR//
 const catalogoMotos= document.getElementById("modelos");
 arrayVehiculos.forEach((vehiculo) => {
     const option = document.createElement("option");
@@ -45,33 +7,28 @@ arrayVehiculos.forEach((vehiculo) => {
     catalogoMotos.append(option);
     
 });
+let htmlCode=""
 
 function mostrarSeleccion(){
 
 let combo=document.getElementById("modelos")
 let selected= combo.options[combo.selectedIndex].text
 
-
 const modeloIngresado = arrayVehiculos.filter(vehiculo => vehiculo.modelo.includes(selected));
-let contenedow = document.createElement("div")
 
-
-for (const modelos of modeloIngresado){
-
-
-  contenedow.innerHTML=
-
-`<div class="card" style="width: 18rem;">
-<div id="cuerpoTarjeta">
-<h5 id="tituloTarjeta">${modelos.modelo} ahora si desde la tarjeta!${modelos.marca}${modelos.valor}</h5>
-  <p id="parrafoTarjeta"></p>
-  <p id="valorTarjeta"></p>
-</div>
-</div>`
-
-}document.body.appendChild(contenedow)
+let intento100=document.getElementById("elementoDinamico")
+intento100.innerHTML=""
+modeloIngresado.forEach ((elemento) => {
+  intento100.innerHTML+=`
+  <div class="contenedorDinamico">
+  <h3>Vehiculo seleccionado:</h3>
+  <h5>${elemento.marca}</h5>
+  <p>${elemento.modelo}   ${elemento.año}</p>
+  <p>${elemento.cc} cc</p>
+  <p>${elemento.valor} CLP</p>
+  <p>${elemento.descripcion}</p>
+  <a href="#" class="btn btn-dark">Cotiza con nosotros</a>
+  </div>`
+})
 }
-
-
-
-
+mostrarSeleccion()
