@@ -1,0 +1,28 @@
+body{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+
+}
+h1{
+    padding-top: 2rem;
+text-align: center;
+font-size: 50px ;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.contenedor{
+    color: black;
+   text-align: center;
+   margin: 15px;
+}
+.btn{
+    margin: 15px;
+   
+}
+.card{
+    padding: 15px;
+    color: black;
+    text-align: center;
+}
