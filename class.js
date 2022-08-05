@@ -28,4 +28,9 @@ const ducati3 = new Vehiculo("DUCATI", "PANIGALE 959", "Año: " + 2020,"Cilindra
 const ducati4 = new Vehiculo("DUCATI", "MODELO: PANIGALE v4 S", "Año: " + 2022,"Cilindrada: "+ 1199, formatoPeso.format(32000000), "COLOR: TRI COLOR ITALIANO", 6.9,"Describir es explicar, de manera detallada y ordenada, cómo son las personas, animales, lugares, objetos, etc. La descripción sirve sobre todo para ambientar la acción y crear una que haga más creíbles los hechos que se narran.")
 const ducati5 = new Vehiculo("DUCATI", "MULTISTRADA V2 S", "Año: " + 2022, 1200, formatoPeso.format(20000000), "COLOR: ROJO DUCATI", 5.9,"Describir es explicar, de manera detallada y ordenada, cómo son las personas, animales, lugares, objetos, etc. La descripción sirve sobre todo para ambientar la acción y crear una que haga más creíbles los hechos que se narran.")
 const ducati6 = new Vehiculo("DUCATI", "DIAVEL", "Año: " + 2020,"Cilindrada: "+ 1260, formatoPeso.format(30000000), "COLOR: GRIS ARSENICA", 5.4,"Describir es explicar, de manera detallada y ordenada, cómo son las personas, animales, lugares, objetos, etc. La descripción sirve sobre todo para ambientar la acción y crear una que haga más creíbles los hechos que se narran.")
-const arrayVehiculos = [kawasaki1, kawasaki3, kawasaki5, kawasaki6, ducati1, ducati3, ducati4, ducati5, ducati6];
+
+const kawas = [kawasaki1, kawasaki3, kawasaki5, kawasaki6 ];
+
+const ducatistas = [ducati1, ducati3, ducati4, ducati5, ducati6]
+const marcas=[kawasaki1, kawasaki3, kawasaki5, kawasaki6,ducati1, ducati3, ducati4, ducati5, ducati6]
+

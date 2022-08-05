@@ -2,8 +2,7 @@ body{
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    background-color: black;
-    color: white;
+    background-color: rgb(255, 255, 255);
 
 }
 h1{
@@ -13,16 +12,24 @@ text-align: center;
 font-size: 50px ;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+h2{
+color: #000;
+}
+
 
 label{
-    margin-left: 30px;
+    margin-left: 10px;
     padding-bottom: 1rem;
+    color: #eee;
+}
+.labelPower{
+    font-size: 25px;
 }
 
 .container{
-    display: -webkit-box;
-    width: 20%;
-    margin-bottom: 50px;
+   
+    width: 90%;
+    margin-bottom: 100%;
     
 }
 
@@ -39,4 +46,65 @@ label{
 }
 .contenedorDinamico h5{
     font-weight: bold;
+}
+.contenedorDinamico2 {
+    margin-top: 100px;
+    padding-top: 100px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 3px;
+}
+.contenedorDinamico2 h5{
+    font-weight: bold;
+}
+
+#side_nav{
+    background: #000;
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+}
+.content{
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-color{
+    background: #eee;
+}
+
+.sidebar li.active{
+    background:#eee;
+    border-radius: 8px;
+}
+
+.sidebar li active a, .sidebar lo.active a:hover{
+    color: #000;
+}
+.sidebar li a{
+    color: #fff
+}
+
+@media(max-width: 767px){
+    #side_nav{
+        margin-left:-250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index:1;
+    }
+    #side_nav-active{
+        margin-left:0;
+    }
+}
+
+#cotizaciones label{
+    padding-left: 3rem;
+    font-weight: 600;
+    color: #000;
+}
+#btnCoti{
+    margin-top: 20px;
 }
