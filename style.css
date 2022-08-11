@@ -1,37 +1,53 @@
-body{
-    margin:0;
+body {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: rgb(255, 255, 255);
 }
-.contieneCosas{
+
+.contieneCosas {
     position: fixed;
     text-align: center;
 }
-h1{
+/*
+#principal{
+}*/
+
+h1 {
     padding-top: 2rem;
     padding-bottom: 2rem;
-text-align: center;
-font-size: 50px ;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-h2{
-color: #000;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-label{
+h2 {
+    color: #000;
+}
+
+label {
     margin-left: 10px;
     padding-bottom: 1rem;
     color: #eee;
 }
-.labelPower{
+
+.labelPower {
     font-size: 25px;
 }
-.container{
-   
+
+.container {
+
     width: 90%;
     margin-bottom: 100%;
 }
+#principal{
+    width: 100%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 3px;
+
+}
+
 .contenedorDinamico {
     margin-top: 100px;
     padding-top: 100px;
@@ -43,69 +59,63 @@ label{
     text-align: center;
     border-radius: 3px;
 }
-h5{
+
+h5 {
     font-weight: bold;
 }
 
-#side_nav{
-    background: #000;
+#side_nav {
+    position: fixed;
+    background-color: #000;
     min-width: 270px;
     max-width: 270px;
     transition: all 0.3s;
+    transform: translateX(-100%);
+    min-height: 100vh;
+    
+}
+#side_nav.active {
+    transform: translateX(0);
+}
+/*
+#modelos{
+transform: translateX(-100%);
+}
+*/
+#modelos.active{
+    transform: translateX(0);
 }
 
-.content{
+.content {
     min-height: 100vh;
     width: 100%;
 }
 
-hr.h-color{
+hr.h-color {
     background: #eee;
 }
 
-.sidebar li.active{
-    background:#eee;
-    border-radius: 8px;
-}
-
-.sidebar li active a, .sidebar lo.active a:hover{
-    color: #000;
-}
-.sidebar li a{
-    color: #fff
-}
-
-@media(max-width: 767px){
-    #side_nav{
-        margin-left:-250px;
-        position: fixed;
-        min-height: 100vh;
-        z-index:1;
-    }
-    #side_nav-active{
-        margin-left:0;
-    }
-}
-
-#cotizaciones label{
+#cotizaciones label {
     padding-left: 3rem;
     font-weight: 600;
     color: #000;
 }
-#btnCoti{
+
+#btnCoti {
     margin-top: 20px;
 }
-img{
-    height: 250px;
-    width: 350px;
+
+img {
+    max-width: 100%;
 }
-#formulario{
+
+#formulario {
     margin-bottom: 55px;
 }
-#formulario label{
+
+#formulario label {
     margin-top: 15px;
     color: black;
-    
 }
 
 #cotizacionFinal {
@@ -120,13 +130,38 @@ img{
     border-radius: 3px;
 }
 
-
-footer{
-    
+footer {
     padding: 25px;
     justify-content: center;
-text-align: center;    color: #eee;
-    height: 80px;
+    text-align: center;
+    color: #eee;
+    height: auto;
     background-color: #000;
+    text-decoration: none;
+}
 
+#toggle{
+    background-color: purple;
+    font-size: 20px;
+    padding: 10px 15px;
+top: 0;
+right: 0;
+border: none;
+position: absolute;
+transform: translateX(125%);
+}
+#toggle .fa-bars{
+display: block;
+}
+#toggle .fa-times{
+    display: none; 
+    }
+
+#side_nav.active .toggle .fa-bars {
+
+    display: none;
+}
+#side_nav.active .toggle .fa-times {
+
+    display: block;
 }
