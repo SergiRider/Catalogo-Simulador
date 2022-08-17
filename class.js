@@ -33,9 +33,11 @@ console.log(preciosos1)
 const preciosos2 = [ducati5.modelo,ducati1.modelo,ducati3.modelo,ducati6.modelo,kawasaki1.modelo,kawasaki1.modelo,kawasaki3.modelo,kawasaki5.modelo,kawasaki6.modelo]
 const nombres=[...preciosos2]
 const intentos=[...preciosos1]
-
+const imagenesMotos=[ducati5.imagen,ducati1.imagen,ducati3.imagen,ducati6.imagen,kawasaki1.imagen,kawasaki1.imagen,kawasaki3.imagen,kawasaki5.imagen,kawasaki6.imagen]
+const imagenes=[...imagenesMotos]
 localStorage.setItem("nombres", JSON.stringify(nombres))
 localStorage.setItem("intentos", JSON.stringify(intentos))
+localStorage.setItem("imagenes", JSON.stringify(imagenes))
 console.log(intentos)
 
 const intento10={
