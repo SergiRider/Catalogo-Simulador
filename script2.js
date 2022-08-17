@@ -59,6 +59,7 @@ function mostrarSeleccion() {
 
 const datosRegistroS = JSON.parse(localStorage.getItem("datosDelCotizante"))
 const modeloRescatada = JSON.parse(localStorage.getItem("modeloIngresado"))
+//DESESTRUCTURACIÓN//
 const {nombre}=datosRegistroS[0]
 const {modelo}=modeloRescatada[0]
 console.log(nombre)

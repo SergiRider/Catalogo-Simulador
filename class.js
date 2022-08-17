@@ -28,8 +28,27 @@ const ducati4 = new Vehiculo("DUCATI", "PANIGALE v4", "Año: " + 2022, "Cilindra
 const ducati5 = new Vehiculo("DUCATI", "MULTISTRADA V2 S", "Año: " + 2022, 1200, 20000000, "COLOR: ROJO DUCATI", 5.9, "La familia Ducati Multistrada continúa su evolución con la presentación de la nueva Multistrada V2: la moto ideal para disfrutar al máximo de cada ruta, versátil en el uso diario y en la ciudad, siempre con la deportividad y el estilo inconfundible que caracterizan a toda Ducati. La nueva bicilíndrica de la familia de motos duales Ducati es una moto de 360​​°, cada vez más intuitiva, cómoda, divertida y accesible, gracias también a la introducción de la versión de 35 kW para conductores con carnet A2. La Multistrada V2 es una motocicleta tecnológicamente avanzada, sofisticada y con un paquete electrónico extremadamente completo, sin olvidar el motor, la última evolución del Testastretta 11° de 937 cc, y representa la puerta de entrada perfecta al universo Ducati tourer. Durante las fases de desarrollo de esta moto, los principales puntos de atención fueron la ergonomía, la reducción de peso, las actualizaciones del motor y una serie de mejoras que siguen la filosofía de 'mejora continua'", "https://images.ctfassets.net/x7j9qwvpvr5s/2ppEjCgRMW08CGRqLKgtKw/6623374c2ee3a2aaeffba9af147f0037/MTS-V2-MY22-Model-Preview-1050x650-v06.png")
 const ducati6 = new Vehiculo("DUCATI", "DIAVEL", "Año: " + 2020, "Cilindrada: " + 1260, 30000000, "COLOR: GRIS ARSENICA", 5.4, "Poderosa. Musculosa. Pero también ágil y eficaz en las curvas para disfrutar al máximo de la conducción.La Diavel 1260 combina el rendimiento de un maxi-naked con la ergonomía de una muscle cruiser. Su diseño reinterpreta el estilo Diavel con un look contemporáneo e integra a la perfección el motor Testastretta DVT 1262 de 162 CV, corazón palpitante de esta nueva Diavel 1260. La novedad del Modelo Año 22 se caracteriza por la elección de gráficos asimétricos y refinados que combinan gris brillante y negro mate como colores principales, a los que se añaden toques deportivos en amarillo, incluido el marco, la parte inferior trasera, la placa de asiento dedicada y algunos detalles de la moto. La Diavel 1260 S 'Black and Steel' se une a la versión S en color Thrilling Black & Dark Stealth con marco rojo y ruedas negras, estará disponible en los puntos de venta autorizados a partir de septiembre de 2021. La versión estándar está disponible en color Dark Stealth con marco negro y ruedas negras.", "https://images.ctfassets.net/x7j9qwvpvr5s/428z0qmtSQNaR3rpyVwGU9/38c7d210703f384b938745150a9f57fe/DVL-1260-Bl-MY21-Model-Preview-1050x650-v03.png")
 
-const preciosos = [kawasaki1.valor, kawasaki3.valor, kawasaki5.valor, kawasaki6.valor, ducati1.valor, ducati3.valor, ducati4.valor, ducati5.valor, ducati6.valor]
-localStorage.setItem("preciosos", JSON.stringify(preciosos))
+const preciosos1 = [ducati5.valor,ducati1.valor,ducati3.valor,ducati6.valor,kawasaki1.valor,kawasaki1.valor,kawasaki3.valor,kawasaki5.valor,kawasaki6.valor]
+console.log(preciosos1)
+const preciosos2 = [ducati5.modelo,ducati1.modelo,ducati3.modelo,ducati6.modelo,kawasaki1.modelo,kawasaki1.modelo,kawasaki3.modelo,kawasaki5.modelo,kawasaki6.modelo]
+const nombres=[...preciosos2]
+const intentos=[...preciosos1]
+
+localStorage.setItem("nombres", JSON.stringify(nombres))
+localStorage.setItem("intentos", JSON.stringify(intentos))
+console.log(intentos)
+
+const intento10={
+    ...intentos
+}
+const intento11={
+    ...nombres
+}
+console.log(intento11[0])
+console.log(intento10[2])
+
+
+
 const kawas = [kawasaki1, kawasaki3, kawasaki5, kawasaki6, ducati1, ducati3, ducati4, ducati5, ducati6];
 
 const d = document;
@@ -90,7 +109,6 @@ function validarDatos(monto, cuotas, elemento) {
         } else {
             const error = d.getElementById("cuotaIncorrecto")
             error.innerHTML = `<p>Cuotas correctas</p>`
-            true
         }
     })
 }
