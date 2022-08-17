@@ -119,17 +119,17 @@ img {
 }
 
 #cotizacionFinal {
-    margin-top: 100px;
-    padding-top: 100px;
     width: 80%;
     margin: 0 auto;
     background-color: rgb(255, 255, 255);
-    padding: 15px;
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 3px;
+    margin-bottom: 15px;
 }
-
+#cotizacionFinal p {
+    padding: 5px;
+}
 footer {
     padding: 25px;
     justify-content: center;
@@ -169,4 +169,8 @@ display: block;
 #mensaje{
     text-align: center;
     
+}
+.contenedorResultado{
+    border:2px solid black;
+
 }

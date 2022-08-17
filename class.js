@@ -133,12 +133,21 @@ function cotizar(nombre, monto, cuotas, elemento, modeloIngresado) {
         let interesesTotal = (mensual * datosCotizacion.cuotas - datosCotizacion.monto).toFixed(0)
 
         if (datosCotizacion.monto > 0 && datosCotizacion.monto <= elemento.valor) {
+            Swal.fire({
+                title: 'Perfecto!',
+                text: 'Lista la cotización!',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                
+        })
             const resultadoFinal = document.getElementById("cotizacionFinal")
             resultadoFinal.innerHTML = `
+            <div class="contenedorResultado">
   <p>El monto solicitado es: <span style="font-weight: 600">${formatoPeso.format(datosCotizacion.monto)}</span></p>
   <p>El pago mensual de las cuotas es de: <span style="font-weight: 600">${formatoPeso.format(mensual)}</span></p>
   <p>El pago total será de: <span style="font-weight: 600">${formatoPeso.format(pagoTotalPrestamo)}</span></p>
   <p>El pago total de intereses es de: <span style="font-weight: 600">${formatoPeso.format(interesesTotal)}</span></p>
+  </div>
   `
 
         } else if (datosCotizacion.monto > elemento.valor) {
@@ -146,6 +155,13 @@ function cotizar(nombre, monto, cuotas, elemento, modeloIngresado) {
         }
     } else {
         console.log("no se almacenó")
+        
+        Swal.fire({
+            title: 'Algo salió mal :c',
+            text: 'Revisa los campos obligatorios.',
+            icon: 'error',
+            confirmButtonText: 'Intenta de nuevo'
+    })
     }
 }
 const side_nav= document.getElementById("side_nav")

@@ -39,7 +39,8 @@ function mostrarSeleccion() {
             <input type="number" class="form-control" id="cuotas" placeholder="Mayor o igual a 6">
             <div id="cuotaIncorrecto"></div>
         </div>
-        <button id="btnCoti" type="submit" class="btn btn-dark">Cotiza ahora!</button>
+        <button id="btnCoti" type="submit" class="btn btn-dark">
+        Cotiza ahora!</button>
     </form>`
     validarNombre(nombre)
     validarDatos(monto, cuotas, elemento)
@@ -48,6 +49,9 @@ function mostrarSeleccion() {
     console.log(formularioo)
     formularioo.addEventListener("submit", (e) => {
       e.preventDefault()
+    
+      
+
       const nombre = document.getElementById("nombre").value
       const monto = document.getElementById("monto").value
       const cuotas = document.getElementById("cuotas").value
@@ -71,3 +75,5 @@ nombre && modelo
  <h3>Hola ${nombre}! </h3>
  <h3>¿Ya te decidiste en comprar tu moto?  Estuviste cotizando una <span style="color:red;font-weight: 600">${modelo}</span></h3>
  `
+
+
