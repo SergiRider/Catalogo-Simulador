@@ -28,28 +28,22 @@ const ducati4 = new Vehiculo("DUCATI", "PANIGALE v4", "Año: " + 2022, "Cilindra
 const ducati5 = new Vehiculo("DUCATI", "MULTISTRADA V2 S", "Año: " + 2022, 1200, 20000000, "COLOR: ROJO DUCATI", 5.9, "La familia Ducati Multistrada continúa su evolución con la presentación de la nueva Multistrada V2: la moto ideal para disfrutar al máximo de cada ruta, versátil en el uso diario y en la ciudad, siempre con la deportividad y el estilo inconfundible que caracterizan a toda Ducati. La nueva bicilíndrica de la familia de motos duales Ducati es una moto de 360​​°, cada vez más intuitiva, cómoda, divertida y accesible, gracias también a la introducción de la versión de 35 kW para conductores con carnet A2. La Multistrada V2 es una motocicleta tecnológicamente avanzada, sofisticada y con un paquete electrónico extremadamente completo, sin olvidar el motor, la última evolución del Testastretta 11° de 937 cc, y representa la puerta de entrada perfecta al universo Ducati tourer. Durante las fases de desarrollo de esta moto, los principales puntos de atención fueron la ergonomía, la reducción de peso, las actualizaciones del motor y una serie de mejoras que siguen la filosofía de 'mejora continua'", "https://images.ctfassets.net/x7j9qwvpvr5s/2ppEjCgRMW08CGRqLKgtKw/6623374c2ee3a2aaeffba9af147f0037/MTS-V2-MY22-Model-Preview-1050x650-v06.png")
 const ducati6 = new Vehiculo("DUCATI", "DIAVEL", "Año: " + 2020, "Cilindrada: " + 1260, 30000000, "COLOR: GRIS ARSENICA", 5.4, "Poderosa. Musculosa. Pero también ágil y eficaz en las curvas para disfrutar al máximo de la conducción.La Diavel 1260 combina el rendimiento de un maxi-naked con la ergonomía de una muscle cruiser. Su diseño reinterpreta el estilo Diavel con un look contemporáneo e integra a la perfección el motor Testastretta DVT 1262 de 162 CV, corazón palpitante de esta nueva Diavel 1260. La novedad del Modelo Año 22 se caracteriza por la elección de gráficos asimétricos y refinados que combinan gris brillante y negro mate como colores principales, a los que se añaden toques deportivos en amarillo, incluido el marco, la parte inferior trasera, la placa de asiento dedicada y algunos detalles de la moto. La Diavel 1260 S 'Black and Steel' se une a la versión S en color Thrilling Black & Dark Stealth con marco rojo y ruedas negras, estará disponible en los puntos de venta autorizados a partir de septiembre de 2021. La versión estándar está disponible en color Dark Stealth con marco negro y ruedas negras.", "https://images.ctfassets.net/x7j9qwvpvr5s/428z0qmtSQNaR3rpyVwGU9/38c7d210703f384b938745150a9f57fe/DVL-1260-Bl-MY21-Model-Preview-1050x650-v03.png")
 
-const preciosos1 = [ducati5.valor,ducati1.valor,ducati3.valor,ducati6.valor,kawasaki1.valor,kawasaki1.valor,kawasaki3.valor,kawasaki5.valor,kawasaki6.valor]
-console.log(preciosos1)
-const preciosos2 = [ducati5.modelo,ducati1.modelo,ducati3.modelo,ducati6.modelo,kawasaki1.modelo,kawasaki1.modelo,kawasaki3.modelo,kawasaki5.modelo,kawasaki6.modelo]
-const nombres=[...preciosos2]
-const intentos=[...preciosos1]
-const imagenesMotos=[ducati5.imagen,ducati1.imagen,ducati3.imagen,ducati6.imagen,kawasaki1.imagen,kawasaki1.imagen,kawasaki3.imagen,kawasaki5.imagen,kawasaki6.imagen]
-const imagenes=[...imagenesMotos]
+const preciosos1 = [ducati5.valor, ducati1.valor, ducati3.valor, ducati6.valor, kawasaki1.valor, kawasaki1.valor, kawasaki3.valor, kawasaki5.valor, kawasaki6.valor]
+const preciosos2 = [ducati5.modelo, ducati1.modelo, ducati3.modelo, ducati6.modelo, kawasaki1.modelo, kawasaki1.modelo, kawasaki3.modelo, kawasaki5.modelo, kawasaki6.modelo]
+const nombres = [...preciosos2]
+const intentos = [...preciosos1]
+const imagenesMotos = [ducati5.imagen, ducati1.imagen, ducati3.imagen, ducati6.imagen, kawasaki1.imagen, kawasaki1.imagen, kawasaki3.imagen, kawasaki5.imagen, kawasaki6.imagen]
+const imagenes = [...imagenesMotos]
 localStorage.setItem("nombres", JSON.stringify(nombres))
 localStorage.setItem("intentos", JSON.stringify(intentos))
 localStorage.setItem("imagenes", JSON.stringify(imagenes))
-console.log(intentos)
 
-const intento10={
+const intento10 = {
     ...intentos
 }
-const intento11={
+const intento11 = {
     ...nombres
 }
-console.log(intento11[0])
-console.log(intento10[2])
-
-
 
 const kawas = [kawasaki1, kawasaki3, kawasaki5, kawasaki6, ducati1, ducati3, ducati4, ducati5, ducati6];
 
@@ -64,113 +58,13 @@ kawas.forEach((vehiculo) => {
     catalogoKawas.append(option);
 });
 
-function ventanaSecundaria(URL) {
-    window.open(URL, "ventana1", "width=860,height=640,scrollbars=NO")
-}
+const side_nav = document.getElementById("side_nav")
+const toggle = document.getElementById("toggle")
+const modelos = document.getElementById("modelos")
 
-function validarNombre() {
-    const nombreValido = d.getElementById("nombre")
-
-
-    nombreValido.addEventListener("blur", () => {
-        if (isNaN(nombreValido.value) && nombreValido.value.length > 0) {
-            const error = d.getElementById("nombreIncorrecto")
-            error.innerHTML = `<p>Hola!</p>`
-        } else {
-            const error = d.getElementById("nombreIncorrecto")
-            error.innerHTML = `<p>Nombre invalido</p>`
-        }
-    })
-}
-function validarDatos(monto, cuotas, elemento) {
-    const montoValido = d.getElementById("monto")
-    const cuotasValidas = d.getElementById("cuotas")
-    montoValido.addEventListener("blur", () => {
-        if (montoValido.value > (elemento.valor) * 0.2 && montoValido.value <= elemento.valor) {
-            const error = d.getElementById("montoIncorrecto")
-            error.innerHTML = `<p>Monto solicitado correcto</p>`
-
-        } else if (montoValido.value == 0) {
-            const error = d.getElementById("montoIncorrecto")
-            error.innerHTML = `<p>Monto no puede ser $<span style="font-weight: 600">0</span></p>`
-        } else if (montoValido.value <= (elemento.valor) * 0.2) {
-            const error = d.getElementById("montoIncorrecto")
-            error.innerHTML = `<p>Monto debe ser igual o superior al <span style="font-weight: 600">20%</span> del valor del vehiculo</p>`
-        } else {
-            const error = d.getElementById("montoIncorrecto")
-            error.innerHTML = `<p>El monto no puede ser mayor a <span style="font-weight: 600">${formatoPeso.format(elemento.valor)}</span></p>`
-        }
-    })
-    cuotasValidas.addEventListener("blur", () => {
-        if (cuotasValidas.value > 0 && cuotasValidas.value < 6) {
-            const error = d.getElementById("cuotaIncorrecto")
-            error.innerHTML = `<p>Cuotas deben ser igual o superior a <span style="font-weight: 600">6</span></p>`
-        } else if (cuotasValidas.value == 0) {
-            const error = d.getElementById("cuotaIncorrecto")
-            error.innerHTML = `<p>Las cuotas no pueden ser <span style="font-weight: 600">0</span></p>`
-        } else {
-            const error = d.getElementById("cuotaIncorrecto")
-            error.innerHTML = `<p>Cuotas correctas</p>`
-        }
-    })
-}
-function cotizar(nombre, monto, cuotas, elemento, modeloIngresado) {
-    const datosCotizacion = {
-        nombre,
-        monto,
-        cuotas,
-    }
-    const datosDelCotizante = []
-    if (datosCotizacion.monto > 0 && datosCotizacion.monto <= elemento.valor && datosCotizacion.monto >= (elemento.valor) * 0.2 && datosCotizacion.cuotas > 0 && datosCotizacion.cuotas >= 6) {
-        datosDelCotizante.push(datosCotizacion)
-
-        localStorage.setItem("datosDelCotizante", JSON.stringify(datosDelCotizante))
-        localStorage.setItem("modeloIngresado", JSON.stringify(modeloIngresado))
-
-        const interes = 3 / 100;
-        let mensual = ((interes * datosCotizacion.monto) / (1 - Math.pow(1 + interes, -datosCotizacion.cuotas))).toFixed(0)
-        let pagoTotalPrestamo = (mensual * datosCotizacion.cuotas).toFixed(0)
-        let interesesTotal = (mensual * datosCotizacion.cuotas - datosCotizacion.monto).toFixed(0)
-
-        if (datosCotizacion.monto > 0 && datosCotizacion.monto <= elemento.valor) {
-            Swal.fire({
-                title: 'Perfecto!',
-                text: 'Lista la cotización!',
-                icon: 'success',
-                confirmButtonText: 'Ok',
-                
-        })
-            const resultadoFinal = document.getElementById("cotizacionFinal")
-            resultadoFinal.innerHTML = `
-            <div class="contenedorResultado">
-  <p>El monto solicitado es: <span style="font-weight: 600">${formatoPeso.format(datosCotizacion.monto)}</span></p>
-  <p>El pago mensual de las cuotas es de: <span style="font-weight: 600">${formatoPeso.format(mensual)}</span></p>
-  <p>El pago total será de: <span style="font-weight: 600">${formatoPeso.format(pagoTotalPrestamo)}</span></p>
-  <p>El pago total de intereses es de: <span style="font-weight: 600">${formatoPeso.format(interesesTotal)}</span></p>
-  </div>
-  `
-
-        } else if (datosCotizacion.monto > elemento.valor) {
-            console.log("El valor del credito es superior al valor del vehiculo")
-        }
-    } else {
-        console.log("no se almacenó")
-        
-        Swal.fire({
-            title: 'Algo salió mal :c',
-            text: 'Revisa los campos obligatorios.',
-            icon: 'error',
-            confirmButtonText: 'Intenta de nuevo'
-    })
-    }
-}
-const side_nav= document.getElementById("side_nav")
-const toggle= document.getElementById("toggle")
-const modelos= document.getElementById("modelos")
-
-toggle.addEventListener("click",()=>{
+toggle.addEventListener("click", () => {
     side_nav.classList.toggle("active")
 })
-modelos.addEventListener("change",()=>{
+modelos.addEventListener("change", () => {
     side_nav.classList.toggle("active")
 })
