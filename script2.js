@@ -4,9 +4,54 @@ modelos15.onchange = mostrarSeleccion;
 function ventanaSecundaria(URL) {
     window.open(URL, "ventana1", "width=860,height=640,scrollbars=NO")
 }
+function mostrarSeleccion() {
+    let combo = document.getElementById("modelos")
+    let selected = combo.options[combo.selectedIndex].text
+    const modeloIngresado = kawas.filter(vehiculo => vehiculo.modelo.includes(selected));
+
+    localStorage.setItem("modeloIngresado", JSON.stringify(modeloIngresado))
+    let intento100 = document.getElementById("elementoDinamico")
+    intento100.innerHTML = ""
+    modeloIngresado.forEach((elemento) => {
+        intento100.innerHTML += `
+  <div class="contenedorDinamico">
+  <h3>Vehiculo seleccionado:</h3>
+  <h5>${elemento.marca}</h5>
+  <p>${elemento.modelo}   ${elemento.año}</p>
+  <p>${elemento.cc} cc</p>
+  <p>${formatoPeso.format(elemento.valor)} CLP</p>
+  <img src="${elemento.imagen}"</img>
+  <p class="mt-5">${elemento.descripcion}</p>
+  <form id="formulario" class="col-lg-6 mx-auto row">
+        <div class="form-group col-lg-6 justify-content-center">
+            <label for="monto">Ingrese el monto a solicitar</label>
+            <input type="number" class="form-control" id="monto"  placeholder="Mayor o igual a ${formatoPeso.format((elemento.valor) * 0.2)}" >
+            <div id="montoIncorrecto"></div>
+        </div>
+        <div class="col-lg-6 justify-content-center">
+            <label for="cuotas">Ingrese la cantidad de cuotas</label>
+            <input type="number" class="form-control" id="cuotas" placeholder="Mayor o igual a 6">
+            <div id="cuotaIncorrecto"></div>
+        </div>
+        <button id="btnCoti" type="submit" class="btn btn-dark">
+        Cotiza ahora!</button>
+    </form>`
+
+        validarDatos(monto, cuotas, elemento)
+
+        const formularioo = document.getElementById("formulario")
+        formularioo.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const monto = document.getElementById("monto").value
+            const cuotas = document.getElementById("cuotas").value
+
+            cotizar(monto, cuotas, elemento, modeloIngresado)
+        })
+    })
+}
 function validarNombre() {
     const nombreValido = d.getElementById("nombre")
-
 
     nombreValido.addEventListener("blur", () => {
         if (isNaN(nombreValido.value) && nombreValido.value.length > 0) {
@@ -50,9 +95,9 @@ function validarDatos(monto, cuotas, elemento) {
         }
     })
 }
-function cotizar(nombre, monto, cuotas, elemento, modeloIngresado) {
+function cotizar(monto, cuotas, elemento, modeloIngresado) {
     const datosCotizacion = {
-        nombre,
+
         monto,
         cuotas,
     }
@@ -74,7 +119,6 @@ function cotizar(nombre, monto, cuotas, elemento, modeloIngresado) {
                 text: 'Lista la cotización!',
                 icon: 'success',
                 confirmButtonText: 'Ok',
-
             })
             const resultadoFinal = document.getElementById("cotizacionFinal")
             resultadoFinal.innerHTML = `
@@ -84,10 +128,64 @@ function cotizar(nombre, monto, cuotas, elemento, modeloIngresado) {
 <p>El pago total será de: <span style="font-weight: 600">${formatoPeso.format(pagoTotalPrestamo)}</span></p>
 <p>El pago total de intereses es de: <span style="font-weight: 600">${formatoPeso.format(interesesTotal)}</span></p>
 </div>
+
+    <h2>¿Te quieres contactar con nosotros? Envianos un correo para que nos contactémos contigo! &#129309</h2>
+<form id="form">
+<div class="field">
+<div class="form-group col-lg-12 justify-content-center">
+            <label for="nombre">Ingresa tu nombre</label>
+            <input type="text" required name="from_name" class="form-control" id="nombre"  placeholder="Ingresa tu nombre" >
+            <div id="nombreIncorrecto"></div>
+        </div>
+        </div>
+        <div  class="field">
+        <div class="form-group col-lg-12 justify-content-center">
+            <label for="email_id" >Ingresa tu correo</label>
+            <input type="email" name="email_id" class="form-control" id="email_id"  placeholder="Ingresa tu correo" required>
+            <div id="correoIncorrecto"></div>
+        </div>
+        </div>
+        <div class="field">
+        <div class="form-group col-lg-12 justify-content-center">
+            <label for="email_id"></label>
+            <input type="text" required name="message" class="form-control" id="message"  placeholder="Escribir aquí" >
+            <div id="correoIncorrecto"></div>
+        </div>
+        </div>
+        <button id="btnCorreo" type="submit" class="btn btn-dark" >Enviar Email</button>
+        </form>
 `
+            validarNombre(nombre)
+            const btn = document.getElementById('btnCorreo');
+
+            document.getElementById('form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                btn.value = 'Sending...';
+                const serviceID = 'default_service';
+                const templateID = 'template_wwlna2p';
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        btn.value = 'Send Email';
+                        Swal.fire({
+                            title: 'Enviado!',
+                            text: 'Te contactaremos a la brevedad .',
+                            icon: 'success',
+                            confirmButtonText: 'Ok',
+                        })
+                        console.log('Enviado!');
+                    }, (err) => {
+                        btn.value = 'Send Email';
+                        console.log(JSON.stringify(err));
+                        Swal.fire({
+                            title: 'Algo salió mal :c',
+                            text: 'Revisa los campos obligatorios.',
+                            icon: 'error',
+                            confirmButtonText: 'Intenta de nuevo'
+                        })
+                    });
+            });
 
         } else if (datosCotizacion.monto > elemento.valor) {
-            console.log("El valor del credito es superior al valor del vehiculo")
         }
     } else {
         console.log("no se almacenó")
@@ -104,84 +202,25 @@ function cotizar(nombre, monto, cuotas, elemento, modeloIngresado) {
 /**
  * MOSTRA SELECCIÓN MOSTRARÁ EL ELEMENTO SELECCIONADO EN EL SELECT Y LO DIBUJARÁ EN EL DOM
  */
-function mostrarSeleccion() {
-    let combo = document.getElementById("modelos")
-    let selected = combo.options[combo.selectedIndex].text
-    const modeloIngresado = kawas.filter(vehiculo => vehiculo.modelo.includes(selected));
 
-    localStorage.setItem("modeloIngresado", JSON.stringify(modeloIngresado))
-    let intento100 = document.getElementById("elementoDinamico")
-    intento100.innerHTML = ""
-    modeloIngresado.forEach((elemento) => {
-        console.log(elemento)
-        intento100.innerHTML += `
-  <div class="contenedorDinamico">
-  <h3>Vehiculo seleccionado:</h3>
-  <h5>${elemento.marca}</h5>
-  <p>${elemento.modelo}   ${elemento.año}</p>
-  <p>${elemento.cc} cc</p>
-  <p>${formatoPeso.format(elemento.valor)} CLP</p>
-  <img src="${elemento.imagen}"</img>
-  <p class="mt-5">${elemento.descripcion}</p>
-  <form id="formulario" class="col-lg-6 mx-auto row">
-        <div class="form-group col-lg-12 justify-content-center">
-            <label for="nombre">Ingresa tu nombre</label>
-            <input type="text" class="form-control" id="nombre"  placeholder="Ingresa tu nombre" >
-            <div id="nombreIncorrecto"></div>
-        </div>
-        <div class="form-group col-lg-6 justify-content-center">
-            <label for="monto">Ingrese el monto a solicitar</label>
-            <input type="number" class="form-control" id="monto"  placeholder="Mayor o igual a ${formatoPeso.format((elemento.valor) * 0.2)}" >
-            <div id="montoIncorrecto"></div>
-        </div>
-        <div class="col-lg-6 justify-content-center">
-            <label for="cuotas">Ingrese la cantidad de cuotas</label>
-            <input type="number" class="form-control" id="cuotas" placeholder="Mayor o igual a 6">
-            <div id="cuotaIncorrecto"></div>
-        </div>
-        <button id="btnCoti" type="submit" class="btn btn-dark">
-        Cotiza ahora!</button>
-    </form>`
-        validarNombre(nombre)
-        validarDatos(monto, cuotas, elemento)
-
-        const formularioo = document.getElementById("formulario")
-        console.log(formularioo)
-        formularioo.addEventListener("submit", (e) => {
-            e.preventDefault()
-
-
-
-            const nombre = document.getElementById("nombre").value
-            const monto = document.getElementById("monto").value
-            const cuotas = document.getElementById("cuotas").value
-
-            cotizar(nombre, monto, cuotas, elemento, modeloIngresado)
-        })
-    })
-}
 function mostrarRegistro() {
-    const datosRegistroS = JSON.parse(localStorage.getItem("datosDelCotizante"))
+
     const modeloRescatada = JSON.parse(localStorage.getItem("modeloIngresado"))
     //DESESTRUCTURACIÓN//
-    const { nombre } = datosRegistroS[0]
     const { modelo } = modeloRescatada[0]
 }
-function imprimirRetomarCompra(){
-    const prueba15 = datosRegistroS[0].nombre
+function imprimirRetomarCompra() {
     const prueba16 = modeloRescatada[0].modelo
     let retomarCompra = document.getElementById("retomar")
     retomarCompra.innerHTML = `
-  <h3>Hola ${prueba15}! </h3>
-  <h3>¿Ya te decidiste en comprar tu moto?  Estuviste cotizando una <span style="color:red;font-weight: 600">${prueba16}</span></h3>
+  <h3>Hola de nuevo &#128512 ! </h3>
+  <br>
+  <h3>¿Ya te decidiste en comprar tu moto &#128521?  Estuviste cotizando una <span style="color:red;font-weight: 600">${prueba16} &#128373</span></h3>
   `
 }
 
-const datosRegistroS = JSON.parse(localStorage.getItem("datosDelCotizante"))
 const modeloRescatada = JSON.parse(localStorage.getItem("modeloIngresado"))
 
 //OPERADOR LOGICO AND
 
-
-datosRegistroS == null?console.log("no hay datos"):imprimirRetomarCompra()
-
+modeloRescatada == null ? console.log("no hay datos") : imprimirRetomarCompra()
