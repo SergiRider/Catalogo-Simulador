@@ -24,8 +24,7 @@ function getRandomInt(max) {
 let mensaje0=document.getElementById("mensaje")
 if(getRandomInt(9)==0){
     mensaje0.innerHTML=`<h1>Te interesa comprar una ${datosRegistroB[0]} a un precio de ${descuento(datosRegistroA[0])}?</h1>
-    <img src="${datosImagenes[0]}</img>`
-    
+    <img src="${datosImagenes[0]}"</img>`
 }else if(getRandomInt(9)==1){
     mensaje0.innerHTML=`<h1>Te interesa comprar una ${datosRegistroB[1]} a un precio de ${descuento(datosRegistroA[1])}?</h1>
     <img src="${datosImagenes[1]}"</img>`

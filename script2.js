@@ -14,7 +14,7 @@ function mostrarSeleccion() {
     intento100.innerHTML = ""
     modeloIngresado.forEach((elemento) => {
         intento100.innerHTML += `
-  <div class="contenedorDinamico">
+  <div class="contenedorDinamico animate__animated animate__fadeIn">
   <h3>Vehiculo seleccionado:</h3>
   <h5>${elemento.marca}</h5>
   <p>${elemento.modelo}   ${elemento.año}</p>
@@ -97,7 +97,6 @@ function validarDatos(monto, cuotas, elemento) {
 }
 function cotizar(monto, cuotas, elemento, modeloIngresado) {
     const datosCotizacion = {
-
         monto,
         cuotas,
     }
@@ -122,7 +121,7 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
             })
             const resultadoFinal = document.getElementById("cotizacionFinal")
             resultadoFinal.innerHTML = `
-          <div class="contenedorResultado">
+          <div class="contenedorResultado animate__animated animate__fadeIn">
 <p>El monto solicitado es: <span style="font-weight: 600">${formatoPeso.format(datosCotizacion.monto)}</span></p>
 <p>El pago mensual de las cuotas es de: <span style="font-weight: 600">${formatoPeso.format(mensual)}</span></p>
 <p>El pago total será de: <span style="font-weight: 600">${formatoPeso.format(pagoTotalPrestamo)}</span></p>
@@ -133,22 +132,22 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
 <form id="form">
 <div class="field">
 <div class="form-group col-lg-12 justify-content-center">
-            <label for="nombre">Ingresa tu nombre</label>
+            <label for="nombre">Ingresa tu nombre:</label>
             <input type="text" required name="from_name" class="form-control" id="nombre"  placeholder="Ingresa tu nombre" >
             <div id="nombreIncorrecto"></div>
         </div>
         </div>
         <div  class="field">
         <div class="form-group col-lg-12 justify-content-center">
-            <label for="email_id" >Ingresa tu correo</label>
+            <label for="email_id" >Ingresa tu correo:</label>
             <input type="email" name="email_id" class="form-control" id="email_id"  placeholder="Ingresa tu correo" required>
             <div id="correoIncorrecto"></div>
         </div>
         </div>
         <div class="field">
         <div class="form-group col-lg-12 justify-content-center">
-            <label for="email_id"></label>
-            <input type="text" required name="message" class="form-control" id="message"  placeholder="Escribir aquí" >
+            <label for="email_id">Contáctanos acá:</label>
+            <input type="text" required name="message" class="form-control" id="message"  placeholder="Dejanos acá tu mensajito..." >
             <div id="correoIncorrecto"></div>
         </div>
         </div>
@@ -218,7 +217,6 @@ function imprimirRetomarCompra() {
   <h3>¿Ya te decidiste en comprar tu moto &#128521?  Estuviste cotizando una <span style="color:red;font-weight: 600">${prueba16} &#128373</span></h3>
   `
 }
-
 const modeloRescatada = JSON.parse(localStorage.getItem("modeloIngresado"))
 
 //OPERADOR LOGICO AND
