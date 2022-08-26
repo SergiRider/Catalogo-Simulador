@@ -17,7 +17,6 @@ class Vehiculo {
         this.imagen = imagen;
     }
 }
-
 const kawasaki1 = new Vehiculo("KAWASAKI", "NINJA 400", "Año: " + 2022, "Cilindrada: " + 398, 6300000, "COLOR: NEGRO", 4.1, "La Ninja® 400 2020 de Kawasaki ofrece la mayor cilindrada de su categoría con 399 cc con la sofisticación de la potencia de dos cilindros. El rendimiento deportivo, la excelente ergonomía y el manejo ligero ofrecen una conducción suave y manejable que atrae a distintos pilotos por su rendimiento deportivo de alta velocidad. Los bajos asientos, el agresivo estilo moderno de la carrocería y los faros LED hacen de la Ninja 400 la elección ideal para los pilotos que buscan entrar en el mundo deportivo.", "https://kawasaki.melhuish.cl/wp-content/uploads/2020/02/400-blanca-lado.jpg")
 const kawasaki3 = new Vehiculo("KAWASAKI", "NINJA ZX-6R", "Año: " + 2021, "Cilindrada: " + 598, 12000000, "COLOR: NEGRO", 5.5, "La Kawasaki Ninja ZX-6R es la deportiva de altas prestaciones que en encuadra en la categoría supersport. Ofrece un uso dual, carretera/circuito, para los que quieren disfrutar del radical espíritu Ninja con un motor de 636 cc que ofrece una potencia máxima de 130 CV. Hereda mucho de la descatalogada Ninja ZX-6R 636 pero está dotada de la más moderna tecnología y de una apariencia inspirada en la todopoderosa ZX-10R.", "https://www.mundomotero.com/wp-content/uploads/2018/10/Kawasaki-ZX-6R-2019.jpg")
 const kawasaki5 = new Vehiculo("KAWASAKI", "NINJA ZX-10R", "Año: " + 2021, "Cilindrada: " + 998, 22000000, "COLOR: NEGRO", 5.9, "Un motor de 998 cc, un manejo excepcional y un estilo agresivo se combinan con una sofisticada electrónica de última generación para hacer que la Ninja ZX-10R ABS esté lista para las carreras o la conducción en la calle. Frenos Brembo® de última generación y control de tracción Kawasaki Sport.", "https://www.motofichas.com/images/phocagallery/Kawasaki/ninja-zx-10r-2021/01-kawasaki-zx-10r-2021-estudio-verde.jpg")
@@ -50,17 +49,17 @@ const kawas = [kawasaki1, kawasaki3, kawasaki5, kawasaki6, ducati1, ducati3, duc
 const d = document;
 
 //ELEMENTOS DEL SELECTOR//
-const catalogoKawas = document.getElementById("modelos");
+const catalogoKawas = d.getElementById("modelos");
 kawas.forEach((vehiculo) => {
-    const option = document.createElement("option");
+    const option = d.createElement("option");
     option.innerText = `${vehiculo.modelo}`;
     option.value = kawas.indexOf(vehiculo);
     catalogoKawas.append(option);
 });
 
-const side_nav = document.getElementById("side_nav")
-const toggle = document.getElementById("toggle")
-const modelos = document.getElementById("modelos")
+const side_nav = d.getElementById("side_nav")
+const toggle = d.getElementById("toggle")
+const modelos = d.getElementById("modelos")
 
 toggle.addEventListener("click", () => {
     side_nav.classList.toggle("active")

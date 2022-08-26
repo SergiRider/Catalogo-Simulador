@@ -1,19 +1,19 @@
-let modelos15 = document.getElementById("modelos");
+let modelos15 = d.getElementById("modelos");
 modelos15.onchange = mostrarSeleccion;
 
 function ventanaSecundaria(URL) {
     window.open(URL, "ventana1", "width=860,height=640,scrollbars=NO")
 }
 function mostrarSeleccion() {
-    let combo = document.getElementById("modelos")
+    let combo = d.getElementById("modelos")
     let selected = combo.options[combo.selectedIndex].text
     const modeloIngresado = kawas.filter(vehiculo => vehiculo.modelo.includes(selected));
 
     localStorage.setItem("modeloIngresado", JSON.stringify(modeloIngresado))
-    let intento100 = document.getElementById("elementoDinamico")
-    intento100.innerHTML = ""
+    let elementoMostrar = d.getElementById("elementoDinamico")
+    elementoMostrar.innerHTML = ""
     modeloIngresado.forEach((elemento) => {
-        intento100.innerHTML += `
+        elementoMostrar.innerHTML += `
   <div class="contenedorDinamico animate__animated animate__fadeIn">
   <h3>Vehiculo seleccionado:</h3>
   <h5>${elemento.marca}</h5>
@@ -39,12 +39,12 @@ function mostrarSeleccion() {
 
         validarDatos(monto, cuotas, elemento)
 
-        const formularioo = document.getElementById("formulario")
-        formularioo.addEventListener("submit", (e) => {
+        const formulario0 = d.getElementById("formulario")
+        formulario0.addEventListener("submit", (e) => {
             e.preventDefault()
 
-            const monto = document.getElementById("monto").value
-            const cuotas = document.getElementById("cuotas").value
+            const monto = d.getElementById("monto").value
+            const cuotas = d.getElementById("cuotas").value
 
             cotizar(monto, cuotas, elemento, modeloIngresado)
         })
@@ -108,9 +108,9 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
         localStorage.setItem("modeloIngresado", JSON.stringify(modeloIngresado))
 
         const interes = 3 / 100;
-        let mensual = ((interes * datosCotizacion.monto) / (1 - Math.pow(1 + interes, -datosCotizacion.cuotas))).toFixed(0)
-        let pagoTotalPrestamo = (mensual * datosCotizacion.cuotas).toFixed(0)
-        let interesesTotal = (mensual * datosCotizacion.cuotas - datosCotizacion.monto).toFixed(0)
+        let mensualmente = ((interes * datosCotizacion.monto) / (1 - Math.pow(1 + interes, -datosCotizacion.cuotas))).toFixed(0)
+        let pagoTotalPrestamo = (mensualmente * datosCotizacion.cuotas).toFixed(0)
+        let interesesTotal = (mensualmente * datosCotizacion.cuotas - datosCotizacion.monto).toFixed(0)
 
         if (datosCotizacion.monto > 0 && datosCotizacion.monto <= elemento.valor) {
             Swal.fire({
@@ -123,7 +123,7 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
             resultadoFinal.innerHTML = `
           <div class="contenedorResultado animate__animated animate__fadeIn">
 <p>El monto solicitado es: <span style="font-weight: 600">${formatoPeso.format(datosCotizacion.monto)}</span></p>
-<p>El pago mensual de las cuotas es de: <span style="font-weight: 600">${formatoPeso.format(mensual)}</span></p>
+<p>El pago mensual de las cuotas es de: <span style="font-weight: 600">${formatoPeso.format(mensualmente)}</span></p>
 <p>El pago total será de: <span style="font-weight: 600">${formatoPeso.format(pagoTotalPrestamo)}</span></p>
 <p>El pago total de intereses es de: <span style="font-weight: 600">${formatoPeso.format(interesesTotal)}</span></p>
 </div>
@@ -155,9 +155,9 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
         </form>
 `
             validarNombre(nombre)
-            const btn = document.getElementById('btnCorreo');
+            const btn = d.getElementById('btnCorreo');
 
-            document.getElementById('form').addEventListener('submit', function (event) {
+            d.getElementById('form').addEventListener('submit', function (event) {
                 event.preventDefault();
                 btn.value = 'Sending...';
                 const serviceID = 'default_service';
@@ -209,12 +209,12 @@ function mostrarRegistro() {
     const { modelo } = modeloRescatada[0]
 }
 function imprimirRetomarCompra() {
-    const prueba16 = modeloRescatada[0].modelo
-    let retomarCompra = document.getElementById("retomar")
+    const mensajeVueltaCompra = modeloRescatada[0].modelo
+    let retomarCompra = d.getElementById("retomar")
     retomarCompra.innerHTML = `
   <h3>Hola de nuevo &#128512 ! </h3>
   <br>
-  <h3>¿Ya te decidiste en comprar tu moto &#128521?  Estuviste cotizando una <span style="color:red;font-weight: 600">${prueba16} &#128373</span></h3>
+  <h3>¿Ya te decidiste en comprar tu moto &#128521?  Estuviste cotizando una <span style="color:red;font-weight: 600">${mensajeVueltaCompra} &#128373</span></h3>
   `
 }
 const modeloRescatada = JSON.parse(localStorage.getItem("modeloIngresado"))

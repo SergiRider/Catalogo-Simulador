@@ -1,0 +1,50 @@
+[
+    {
+        "nombre": "Wen",
+        "apellido": "Kenobi",
+        "imagen": "https://randomuser.me/api/portraits/med/men/3.jpg",
+        "testimonio": "El ejecutivo me atendió de lujo, me ofreció el mejor credito según mi perfil."
+    },
+    {
+        "nombre": "Juana",
+        "apellido": "Descalza",
+        "imagen": "https://randomuser.me/api/portraits/med/women/8.jpg",
+        "testimonio": "Excelente servicio &#11088&#11088&#11088"
+    },
+    {
+        "nombre": "Cristina",
+        "apellido": "K.",
+        "imagen": "https://randomuser.me/api/portraits/med/women/6.jpg",
+        "testimonio": "'No hagas una venta, haz un cliente', definitivamente tienen mi total fidelidad, volvería a confiar en SG &#128151"
+    },
+    {
+        "nombre": "Boby",
+        "apellido": "Jackson",
+        "imagen": "https://randomuser.me/api/portraits/med/men/1.jpg",
+        "testimonio": "He recomendado SG a varies de mis amigues, ahora todes estamos andando en nuestras Ducatis &#128133"
+    },
+    {
+        "nombre": "Jebus",
+        "apellido": "El Poderoso",
+        "imagen": "https://randomuser.me/api/portraits/med/men/4.jpg",
+        "testimonio": "La atención fue expedita, en menos de 2 semanas ya me habían entregado mi H2R &#9889"
+    },
+    {
+        "nombre": "Violet",
+        "apellido": "Garden",
+        "imagen": "https://randomuser.me/api/portraits/med/women/5.jpg",
+        "testimonio": "Al principio tenía mis dudas, pero los ejecutivos me dieron la confianza para comprar mi primera moto &#127949"
+    },
+    {
+        "nombre": "Samira",
+        "apellido": "Rota",
+        "imagen": "https://randomuser.me/api/portraits/med/women/7.jpg",
+        "testimonio": "El interés de los creditos es realmente bajo, de fácil acceso para mi bolsillo."
+    },
+    {
+        "nombre": "Luis",
+        "apellido": "Salainas",
+        "imagen": "https://randomuser.me/api/portraits/med/men/2.jpg",
+        "testimonio": "Luego de años pude comprar la moto de mis sueños, gracias a SG &#128170"
+    }
+]
