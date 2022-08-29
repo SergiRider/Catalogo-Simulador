@@ -24,12 +24,12 @@ function mostrarSeleccion() {
   <p class="mt-5">${elemento.descripcion}</p>
   <form id="formulario" class="col-lg-6 mx-auto row">
         <div class="form-group col-lg-6 justify-content-center">
-            <label for="monto">Ingrese el monto a solicitar</label>
+            <label for="monto"><h5>Ingrese el monto a solicitar</h5></label>
             <input type="number" class="form-control" id="monto"  placeholder="Mayor o igual a ${formatoPeso.format((elemento.valor) * 0.2)}" >
             <div id="montoIncorrecto"></div>
         </div>
         <div class="col-lg-6 justify-content-center">
-            <label for="cuotas">Ingrese la cantidad de cuotas</label>
+            <label for="cuotas"><h5>Ingrese la cantidad de cuotas</h5></label>
             <input type="number" class="form-control" id="cuotas" placeholder="Mayor o igual a 6">
             <div id="cuotaIncorrecto"></div>
         </div>
@@ -122,10 +122,10 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
             const resultadoFinal = document.getElementById("cotizacionFinal")
             resultadoFinal.innerHTML = `
           <div class="contenedorResultado animate__animated animate__fadeIn">
-<p>El monto solicitado es: <span style="font-weight: 600">${formatoPeso.format(datosCotizacion.monto)}</span></p>
-<p>El pago mensual de las cuotas es de: <span style="font-weight: 600">${formatoPeso.format(mensualmente)}</span></p>
-<p>El pago total será de: <span style="font-weight: 600">${formatoPeso.format(pagoTotalPrestamo)}</span></p>
-<p>El pago total de intereses es de: <span style="font-weight: 600">${formatoPeso.format(interesesTotal)}</span></p>
+<h5>El monto solicitado es: <span style="font-weight: 600">${formatoPeso.format(datosCotizacion.monto)}</span></h5>
+<h5>El pago mensual de las cuotas es de: <span style="font-weight: 600">${formatoPeso.format(mensualmente)}</span></h5>
+<h5>El pago total será de: <span style="font-weight: 600">${formatoPeso.format(pagoTotalPrestamo)}</span></h5>
+<h5>El pago total de intereses es de: <span style="font-weight: 600">${formatoPeso.format(interesesTotal)}</span></h5>
 </div>
 
     <h2>¿Te quieres contactar con nosotros? Envianos un correo para que nos contactémos contigo! &#129309</h2>

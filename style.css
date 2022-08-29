@@ -65,7 +65,7 @@ h5 {
 
 #side_nav {
     position: fixed;
-    background-color: #000;
+    background-color: rgba(22,22,22);
     min-width: 270px;
     max-width: 270px;
     transition: all 0.3s;
@@ -140,10 +140,10 @@ footer {
 }
 
 #toggle{
-    background-color: purple;
+    background-color: rgb(255, 238, 0);
     font-size: 20px;
     padding: 10px 15px;
-top: 0;
+top: 0px;
 right: 0;
 border: none;
 position: absolute;
@@ -335,4 +335,8 @@ h2 b {
 .star-rating i {
     font-size: 14px;
     color: #ffc000;
+}
+.toogleHTML{
+ margin-top: 30px;
+
 }
