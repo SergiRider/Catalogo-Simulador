@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Segunda Entrega Proyecto</title>
-  <!-- CSS only -->
+  <link rel="shortcut icon" href="IMG/SG.png" type="image/x-icon">
+  <title>Catalogo Simulador</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -30,21 +30,19 @@
         </button>
       </div>
       <section id="principal" class="p-4 my-container">
-
-
         <div class="arreglo">
           <img src="https://i.ibb.co/t4JDGHj/imagen-2022-08-23-130356933.png" alt="imagen-2022-08-23-130356933">
         </div>
+        <div class="soniar">
         <h1>Cotizador de motos</h1>
-        <br>
+      
         <div id="retomar"></div>
-        <br>
-        <h3 class="">Fecha expiración 25-08-2022 || Incorporar FETCH</p>
-        <br>
-        <p>Lorem ipsum dovoluptas! Blanditiis autem optio labore quisquam culpa, tempora minus eum
-          repudiandae ea voluptatem quia obcaecati velit cum dolorum esse dolorem!</p>
-        <p>Lorem ipsum dolanditiis m culpa, tempora minus eum repudiandae ea voluptatem quia obcaecati
-          velit cum dolorum esse dolorem!</h5>
+ 
+        <h2>Consigue con nosotros esa moto que siempre has <span >soñado.</span> </h2>
+        </div>
+     
+        <p>En SG ofrecemos distintos creditos de consumo para que puedas financiar la compra de la moto que siempre has soñado. </p>
+        <p>Puedes revisar nuestro <span>CATALOGO</span> en linea y comenzar a cotizar!</p>
       </section>
       <section id="elementoDinamico"></section>
       <section id="cotizacionFinal"></section>
@@ -52,6 +50,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
+              <hr>
               <h2 class="testimonios">Testimonios </h2>
               <h2><b>Muchos ya han cotizado con nosotros</b></h2>
               <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
@@ -120,8 +119,8 @@
     <div class="sidebar" id="side_nav">
       <div class="contieneCosas">
         <button type="button" id="toggle">
-          <i class="fas fa-bars"> </i>
-          <i class="fas fa-times"> </i>
+          <i class="fas fa-bars">CATALOGO</i>
+          
         </button>
         <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
           <h1 class="fs-4 "><span class="bg-white text-dark rounded shadow px-2 me-2">SG</span><span
@@ -135,12 +134,7 @@
             <select id="modelos" class="form-select" aria-label="Default select example">
               <option selected="selected" disabled="disabled">Selecciona un modelo</option>
             </select>
-            <div class="toogleHTML">
-              <svg id="dark_mode" class="noche" width="55" height="55" viewBox="0 0 55 55" xmlns="http://www.w3.org/2000/svg">
-                <path class="moon" d="M 27.5 0 C 34.791 0 41.79 2.899 46.945 8.055 C 52.101 13.21 55 20.209 55 27.5 C 55 34.791 52.101 41.79 46.945 46.945 C 41.79 52.101 34.791 55 27.5 55 C 20.209 55 13.21 52.101 8.055 46.945 C 2.899 41.79 0 34.791 0 27.5 C 0 20.209 2.899 13.21 8.055 8.055 C 13.21 2.899 20.209 0 27.5 0 Z" fill="#fee140"/>
-              </svg>
-              <p class="noche">Modo noche</p>
-            </div>
+            
         </ul>
       </div>
     </div>
@@ -156,7 +150,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.28/dist/sweetalert2.all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="funcionesRandom.js"></script>
+  <script src="usuariosTestimonios.js"></script>
   <script src="class.js"></script>
   <script src="funcionPrincipal.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>

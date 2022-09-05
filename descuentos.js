@@ -5,17 +5,15 @@ const formatoPeso = new Intl.NumberFormat('es-CL', {
 })
 
 const datosRegistroA = JSON.parse(localStorage.getItem("intentos"))
-console.log(datosRegistroA)
 
 const datosRegistroB = JSON.parse(localStorage.getItem("nombres"))
-console.log(datosRegistroB)
 
 const datosImagenes = JSON.parse(localStorage.getItem("imagenes"))
-console.log(datosImagenes)
+
 function descuento(datosRegistroA){
     return formatoPeso.format(datosRegistroA-(datosRegistroA*0.1))
 }
-console.log(descuento(datosRegistroA[0]))
+
 
 let random=Math.floor(Math.random()*9)+1
 

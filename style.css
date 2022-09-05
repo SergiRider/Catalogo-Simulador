@@ -58,6 +58,10 @@ label {
     text-align: center;
     border-radius: 3px;
 }
+span{
+    color: #fac106;
+    font-weight: 700;
+}
 
 h5 {
     font-weight: bold;
@@ -120,7 +124,7 @@ img {
 #cotizacionFinal {
     width: 80%;
     margin: 0 auto;
-    background-color: rgb(255, 255, 255);
+    background-color: #fac106;;
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 3px;
@@ -140,21 +144,18 @@ footer {
 }
 
 #toggle{
-    background-color: rgb(255, 238, 0);
+    background-color: #fac106;
     font-size: 20px;
-    padding: 10px 15px;
+    padding: 10px 10px;
 top: 0px;
-right: 0;
+right: 0px;
 border: none;
 position: absolute;
-transform: translateX(125%);
+transform: translateX(106%);
 }
 #toggle .fa-bars{
 display: block;
 }
-#toggle .fa-times{
-    display: none; 
-    }
 
 #side_nav.active .toggle .fa-bars {
 
@@ -309,7 +310,7 @@ h2 b {
     margin-right: 5px;
 }
 .carousel .item-price span {
-    color: #86bd57;
+    color: #fac106;
     font-size: 110%;
 }   
 .carousel .carousel-indicators {
@@ -336,7 +337,4 @@ h2 b {
     font-size: 14px;
     color: #ffc000;
 }
-.toogleHTML{
- margin-top: 30px;
 
-}

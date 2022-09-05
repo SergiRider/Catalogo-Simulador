@@ -14,13 +14,14 @@ function mostrarSeleccion() {
     elementoMostrar.innerHTML = ""
     modeloIngresado.forEach((elemento) => {
         elementoMostrar.innerHTML += `
+        <hr>
   <div class="contenedorDinamico animate__animated animate__fadeIn">
   <h3>Vehiculo seleccionado:</h3>
   <h5>${elemento.marca}</h5>
   <p>${elemento.modelo}   ${elemento.año}</p>
   <p>${elemento.cc} cc</p>
   <p>${formatoPeso.format(elemento.valor)} CLP</p>
-  <img src="${elemento.imagen}"</img>
+  <img src="${elemento.imagen}" title="${elemento.modelo}" alt="${elemento.modelo}"</img>
   <p class="mt-5">${elemento.descripcion}</p>
   <form id="formulario" class="col-lg-6 mx-auto row">
         <div class="form-group col-lg-6 justify-content-center">
@@ -151,7 +152,7 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
             <div id="correoIncorrecto"></div>
         </div>
         </div>
-        <button id="btnCorreo" type="submit" class="btn btn-dark" >Enviar Email</button>
+        <button id="btnCorreo" type="submit" class="btn btn-dark mb-3" >Enviar Email</button>
         </form>
 `
             validarNombre(nombre)
@@ -205,7 +206,6 @@ function cotizar(monto, cuotas, elemento, modeloIngresado) {
 function mostrarRegistro() {
 
     const modeloRescatada = JSON.parse(localStorage.getItem("modeloIngresado"))
-    //DESESTRUCTURACIÓN//
     const { modelo } = modeloRescatada[0]
 }
 function imprimirRetomarCompra() {
@@ -219,6 +219,4 @@ function imprimirRetomarCompra() {
 }
 const modeloRescatada = JSON.parse(localStorage.getItem("modeloIngresado"))
 
-//OPERADOR LOGICO AND
-
-modeloRescatada == null ? console.log("no hay datos") : imprimirRetomarCompra()
+modeloRescatada == null ? console.log("no hay datos") : imprimirRetomarCompra() & console.log("Datos rescatados del localStorage")

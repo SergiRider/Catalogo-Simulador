@@ -37,15 +37,7 @@ localStorage.setItem("nombres", JSON.stringify(nombres))
 localStorage.setItem("intentos", JSON.stringify(intentos))
 localStorage.setItem("imagenes", JSON.stringify(imagenes))
 
-const intento10 = {
-    ...intentos
-}
-const intento11 = {
-    ...nombres
-}
-
 const kawas = [kawasaki1, kawasaki3, kawasaki5, kawasaki6, ducati1, ducati3, ducati4, ducati5, ducati6];
-
 const d = document;
 
 //ELEMENTOS DEL SELECTOR//
@@ -57,13 +49,15 @@ kawas.forEach((vehiculo) => {
     catalogoKawas.append(option);
 });
 
+//SIDE NAV FUNCIONALIDAD
 const side_nav = d.getElementById("side_nav")
 const toggle = d.getElementById("toggle")
 const modelos = d.getElementById("modelos")
 
 toggle.addEventListener("click", () => {
-    side_nav.classList.toggle("active")
+    side_nav.classList.toggle("active");
 })
+
 modelos.addEventListener("change", () => {
     side_nav.classList.toggle("active")
 })
